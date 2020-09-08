@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="colorPrimary">#F3F2F2</color>
+    <color name="colorPrimaryDark">#d32f2f</color>
+    <color name="colorAccent">#C6D32F2F</color>
+
+    <color name="colorText">#d32f2f</color>
+    <color name="colorWhite">#FFFFFF</color>
+    <color name="inactiveColor">#b2b2b2</color>
+    <color name="red_color">#d32f2f</color>
+    <color name="textColor">#C6F15858</color>
+
+    <color name="neumorph_BackgroundColor">#F2F2F2</color>
+    <color name="neumorph_shadowColorDark">#808080</color>
+    <color name="neumorph_shadowColorLight">#ffffff</color>
+
+    <color name="genderSelectedCardBackground">#d32f2f</color>
+    <color name="genderSelectedShadowColorDark">#701919</color>
+    <color name="genderSelectedShadowColorLight">#ff4545</color>
+
+    <color name="UnitStrokeColor">#d32f2f</color>
+    <color name="numberPickerSelectedColor">#d32f2f</color>
+    <color name="notchColor">#C6F15858</color>
+    <color name="yourTranslucentColor">#29000000</color>
+
+</resources>

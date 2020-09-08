@@ -1,0 +1,47 @@
+<resources>
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:colorBackground">@color/colorPrimary</item>
+        <item name="colorNavigationItem">@color/menu_item_color_state</item>
+        <item name="colorNavigationItemSelected">@color/colorWhite</item>
+        <item name="drawableNavigationItemBackground">@drawable/menu_background_color_state</item>
+    </style>
+
+    <style name="AppTheme.Transparent">
+        <item name="windowActionBarOverlay">true</item>
+        <item name="android:windowTranslucentStatus">true</item>
+<!--        <item name="android:windowDrawsSystemBarBackgrounds">true</item>-->
+        <item name="android:windowTranslucentNavigation">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+    </style>
+
+<!--    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />-->
+
+    <style name="Widget.Custom.NavigationView" parent="Widget.Design.NavigationView">
+        <item name="itemIconTint">?attr/colorNavigationItem</item>
+        <item name="itemTextColor">?attr/colorNavigationItem</item>
+        <item name="itemBackground">?attr/drawableNavigationItemBackground</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+
+    <style name="ShapeAppearance">
+        <item name="neumorph_cornerFamily">rounded</item>
+        <item name="neumorph_cornerSize">16dp</item>
+    </style>
+
+    <style name="ShapeAppearance2">
+        <item name="neumorph_cornerFamily">rounded</item>
+        <item name="neumorph_cornerSize">32dp</item>
+    </style>
+
+</resources>

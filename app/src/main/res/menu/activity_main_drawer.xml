@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_bmi"
+            android:icon="@drawable/ic_bmi_icon"
+            android:title="@string/menu_home" />
+        <item
+            android:id="@+id/nav_bmr"
+            android:icon="@drawable/ic_apple"
+            android:title="@string/daily_calorie_intake" />
+        <item
+            android:id="@+id/nav_fat_percent"
+            android:icon="@drawable/ic_fat_man_filled"
+            android:title="@string/body_fat_percentage" />
+
+        <item
+            android:id="@+id/water_tracking"
+            android:icon="@drawable/ic_water"
+            android:title="@string/water_tracking" />
+
+    </group>
+
+    <item android:title="@string/communication">
+        <menu>
+            <item
+                android:id="@+id/moreApps"
+                android:icon="@drawable/ic_app_symbol"
+                android:title="@string/more_apps" />
+
+            <item
+                android:id="@+id/contact"
+                android:icon="@drawable/gmail"
+                android:title="@string/contact_us" />
+            <item
+                android:id="@+id/rate"
+                android:icon="@drawable/ic_star_border"
+                android:title="@string/rate_us" />
+            <item
+                android:id="@+id/shareApp"
+                android:icon="@drawable/ic_share"
+                android:title="@string/share_with_friends" />
+            <item
+                android:id="@+id/update"
+                android:icon="@drawable/update"
+                android:title="@string/check_for_update" />
+        </menu>
+
+    </item>
+</menu>
