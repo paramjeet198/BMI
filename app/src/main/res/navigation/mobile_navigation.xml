@@ -8,15 +8,15 @@
 
     <fragment
         android:id="@+id/nav_bmi"
-        android:name="com.techbull.bmi.ui.BMI_HOME.BmiFragment"
+        android:name="com.techbull.bmi.ui.BMI.BmiFragment"
         android:label="@string/menu_home"
         tools:layout="@layout/fragment_bmi" />
 
     <fragment
         android:id="@+id/nav_bmr"
-        android:name="com.techbull.bmi.ui.gallery.GalleryFragment"
+        android:name="com.techbull.bmi.ui.WaterTrack.WaterTracking"
         android:label="@string/daily_calorie_intake"
-        tools:layout="@layout/fragment_gallery" />
+        tools:layout="@layout/fragment_water_tracking" />
 
     <fragment
         android:id="@+id/nav_fat_percent"

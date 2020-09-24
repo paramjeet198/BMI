@@ -1,23 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#1A1B1E</color>
-    <color name="colorPrimaryDark">#404245</color>
+    <color name="colorPrimary">#12192c</color>
+    <color name="colorPrimaryDark">#233b55</color>
     <color name="colorAccent">#E4E4E4</color>
+
+    <!--    <color name="walk_through_background">#090909</color>-->
+    <!--    <color name="walk_through_cardcolor">#151515</color>-->
+    <!--    <color name="cardSelectedColor">#e8854e</color>-->
 
     <color name="colorText">#45A5C3</color>
     <color name="textColor">#FFFFFF</color>
     <color name="inactiveColor">#b2b2b2</color>
     <color name="red_color">#d32f2f</color>
 
-    <color name="neumorph_BackgroundColor">#1A1B1E</color>
-    <color name="neumorph_shadowColorDark">#0a0b0c</color>
-    <color name="neumorph_shadowColorLight">#2a2b30</color>
+    <color name="neumorph_BackgroundColor">#12192c</color>
+    <color name="neumorph_shadowColorDark">#1C344E</color>
+    <color name="neumorph_shadowColorLight">#990a0b0c</color>
 
-    <color name="genderSelectedCardBackground">#022C48</color>
+    <color name="genderSelectedCardBackground">#45A5C3</color>
     <color name="genderSelectedShadowColorDark">#01121d</color>
     <color name="genderSelectedShadowColorLight">#034673</color>
     <color name="UnitStrokeColor">#45A5C3</color>
-    <color name="numberPickerSelectedColor">#45A5C3</color>
+    <color name="numberPickerSelectedColor">#0B9BC8</color>
     <color name="notchColor">#4198D3</color>
+
+    //Profile/Home Fragment colors..
+    <color name="profileCardColor">#233b55</color>
+    <color name="profileValuesColor">#FFFFFF</color>
 
 </resources>

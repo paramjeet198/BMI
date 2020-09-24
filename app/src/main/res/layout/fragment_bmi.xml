@@ -14,7 +14,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/colorPrimary"
+
             android:orientation="vertical">
 
             <soup.neumorphism.NeumorphCardView
@@ -170,22 +170,18 @@
                         android:layout_centerInParent="true"
                         app:np_dividerColor="@color/colorAccent"
                         app:np_dividerType="underline"
-                        app:np_fadingEdgeEnabled="true"
-                        app:np_fadingEdgeStrength="50"
-                        app:np_height="50dp"
                         app:np_max="150"
                         app:np_min="0"
                         app:np_orientation="horizontal"
                         app:np_scrollerEnabled="true"
                         app:np_selectedTextColor="@color/numberPickerSelectedColor"
-                        app:np_selectedTextSize="50sp"
+                        app:np_selectedTextSize="30sp"
                         app:np_selectedTypeface="@font/rubik_bold"
-                        app:np_textColor="@color/numberPickerSelectedColor"
-                        app:np_textSize="25sp"
+                        app:np_textColor="@color/inactiveColor"
                         app:np_typeface="@font/rubik_medium"
                         app:np_value="21"
                         app:np_wheelItemCount="8"
-                        app:np_wrapSelectorWheel="true" />
+                        app:np_wrapSelectorWheel="false" />
 
                 </RelativeLayout>
 
@@ -533,7 +529,7 @@
                 android:id="@+id/cardShare"
                 style="@style/Widget.Neumorph.CardView"
                 android:layout_width="match_parent"
-                android:layout_height="150dp"
+                android:layout_height="190dp"
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="10dp"
                 app:neumorph_shadowColorDark="@color/neumorph_shadowColorDark"
@@ -564,7 +560,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_margin="14sp"
+                            android:layout_marginTop="10dp"
                             android:fontFamily="@font/rubik_medium"
                             android:text="Your BMi is"
                             android:textColor="@color/colorText"
@@ -574,13 +570,41 @@
 
                         <TextView
                             android:id="@+id/bmiShow"
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:fontFamily="@font/rubik_bold"
+                            android:fontFamily="@font/nosifer_regular"
+                            android:gravity="center"
                             android:text="-"
                             android:textColor="@color/textColor"
-                            android:textSize="25sp"
-                            android:textStyle="bold"
+                            android:textSize="30sp"
+                            android:textStyle="normal"
+                            android:visibility="visible" />
+
+                        <TextView
+                            android:id="@+id/bmiResultText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/nosifer_regular"
+                            android:gravity="center"
+                            android:text="-"
+                            android:textColor="@color/textColor"
+                            android:textSize="20sp"
+                            android:textStyle="normal"
+                            android:visibility="visible" />
+
+                        <TextView
+                            android:id="@+id/bmiResultText2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:alpha=".7"
+                            android:fontFamily="@font/nosifer_regular"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:text="Time for a run!"
+                            android:textAllCaps="false"
+                            android:textColor="@color/textColor"
+                            android:textSize="12sp"
+                            android:textStyle="normal"
                             android:visibility="visible" />
 
                     </LinearLayout>
@@ -705,17 +729,17 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:backgroundTint="#FFFFFF"
-                            android:drawableTop="@drawable/ic_weight_ideal"
                             android:gravity="center"
                             android:text="Ideal Weight"
                             android:textColor="@color/textColor"
-                            android:textSize="12sp" />
+                            android:textSize="12sp"
+                            app:drawableTopCompat="@drawable/ic_weight_ideal" />
 
                         <TextView
                             android:id="@+id/idealW"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:fontFamily="@font/rubik_bold"
+                            android:fontFamily="@font/brandon_bold"
                             android:padding="5dp"
                             android:text="-"
                             android:textColor="@color/textColor"
@@ -747,22 +771,23 @@
                             android:id="@+id/drawableHealthy"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:drawableTop="@drawable/ic_weight_healthy"
                             android:gravity="center"
                             android:text="Healthy Weight Range"
                             android:textColor="@color/textColor"
-                            android:textSize="12sp" />
+                            android:textSize="12sp"
+                            app:drawableTopCompat="@drawable/ic_weight_healthy" />
 
                         <TextView
                             android:id="@+id/healthyW"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:fontFamily="@font/rubik_bold"
+                            android:fontFamily="@font/brandon_bold"
                             android:gravity="center"
                             android:padding="5dp"
                             android:text="-"
                             android:textColor="@color/textColor"
-                            android:textSize="16sp" />
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
 
                     </LinearLayout>
 
@@ -799,23 +824,23 @@
                             android:id="@+id/drawableOver"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:drawableTop="@drawable/ic_weight_overweight"
-                            android:drawableTint="@color/red_color"
                             android:gravity="center"
                             android:text="OverWeight"
                             android:textColor="@color/textColor"
                             android:textSize="12sp"
+                            app:drawableTint="@color/red_color"
+                            app:drawableTopCompat="@drawable/ic_weight_overweight"
                             tools:targetApi="m" />
 
                         <TextView
                             android:id="@+id/overW"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:fontFamily="@font/rubik_bold"
+                            android:fontFamily="@font/nosifer_regular"
                             android:text="-"
                             android:textColor="@color/red_color"
                             android:textSize="16sp"
-                            android:textStyle="bold" />
+                            android:textStyle="normal" />
 
                     </LinearLayout>
 
@@ -842,17 +867,17 @@
                             android:id="@+id/fat"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:drawableTop="@drawable/ic_fat_man_filled"
                             android:gravity="center"
                             android:text="@string/body_fat_percentage"
                             android:textColor="@color/textColor"
-                            android:textSize="12sp" />
+                            android:textSize="12sp"
+                            app:drawableTopCompat="@drawable/ic_fat_man_filled" />
 
                         <TextView
                             android:id="@+id/fatPercentage"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:fontFamily="@font/rubik_bold"
+                            android:fontFamily="@font/brandon_bold"
                             android:padding="5dp"
                             android:text="-"
                             android:textColor="@color/textColor"

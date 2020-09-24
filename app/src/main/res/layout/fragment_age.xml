@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/walk_through_background"
+    tools:context=".WalkThrough.fragments.FragmentSelectAge">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/nextBtn"
+        android:layout_alignParentTop="true"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/img"
+            android:layout_width="120dp"
+            android:layout_height="100dp"
+            android:layout_marginBottom="10dp"
+            android:src="@drawable/age"
+            app:tint="@color/colorWhite" />
+
+        <TextView
+            android:id="@+id/genderText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:alpha=".8"
+            android:fontFamily="@font/brandon_bold"
+            android:text="@string/what_is_your_age"
+            android:textColor="@color/colorWhite"
+            android:textSize="25sp"
+            android:textStyle="normal" />
+
+        <TextView
+            android:id="@+id/subtitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:alpha=".5"
+            android:fontFamily="@font/brandon_bold"
+            android:text="@string/select_your_age"
+            android:textColor="@color/colorWhite"
+            android:textSize="14sp"
+            android:textStyle="normal" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height=".3dp"
+            android:layout_marginTop="10dp"
+            android:alpha=".3"
+            android:background="@color/inactiveColor" />
+
+        <LinearLayout
+            android:id="@+id/ageHolder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/year"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="5dp"
+                android:textColor="@color/colorWhite"
+                android:textSize="60sp"
+                android:textStyle="bold"
+                tools:text="21" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:alpha=".7"
+                android:gravity="center"
+                android:text="Year"
+                android:textColor="@color/colorWhite"
+                android:textSize="15sp"
+                android:textStyle="normal" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height=".3dp"
+            android:layout_marginBottom="5dp"
+            android:alpha=".3"
+            android:background="@color/inactiveColor" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.shawnlin.numberpicker.NumberPicker
+                android:id="@+id/number_picker"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:np_dividerColor="@android:color/transparent"
+                app:np_max="150"
+                app:np_min="10"
+                app:np_orientation="vertical"
+                app:np_scrollerEnabled="true"
+                app:np_selectedTextColor="@color/colorWhite"
+                app:np_selectedTextSize="38sp"
+                app:np_textColor="@color/inactiveColor"
+                app:np_typeface="@font/rubik_medium"
+                app:np_value="21"
+                app:np_wheelItemCount="6"
+                app:np_wrapSelectorWheel="false" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <include layout="@layout/next_button_layout" />
+
+</RelativeLayout>

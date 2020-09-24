@@ -8,19 +8,26 @@
         <item name="colorNavigationItem">@color/menu_item_color_state</item>
         <item name="colorNavigationItemSelected">@color/colorWhite</item>
         <item name="drawableNavigationItemBackground">@drawable/menu_background_color_state</item>
+        <item name="android:dialogTheme">@style/AppDialogTheme</item>
     </style>
 
     <style name="AppTheme.Transparent">
         <item name="windowActionBarOverlay">true</item>
         <item name="android:windowTranslucentStatus">true</item>
-<!--        <item name="android:windowDrawsSystemBarBackgrounds">true</item>-->
-        <item name="android:windowTranslucentNavigation">true</item>
+        <!--        <item name="android:windowDrawsSystemBarBackgrounds">true</item>-->
+        <!--        <item name="android:windowTranslucentNavigation">true</item>-->
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
         <item name="android:statusBarColor">@android:color/transparent</item>
     </style>
 
-<!--    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />-->
+    <style name="ToolbarTheme" parent="ThemeOverlay.MaterialComponents">
+        <item name="android:fontFamily">@font/nosifer_regular</item>
+    </style>
+
+    <style name="Toolbar.TitleText" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <item name="android:textSize">16sp</item>
+    </style>
 
     <style name="Widget.Custom.NavigationView" parent="Widget.Design.NavigationView">
         <item name="itemIconTint">?attr/colorNavigationItem</item>
@@ -36,12 +43,21 @@
 
     <style name="ShapeAppearance">
         <item name="neumorph_cornerFamily">rounded</item>
-        <item name="neumorph_cornerSize">16dp</item>
+        <item name="neumorph_cornerSize">10dp</item>
     </style>
 
     <style name="ShapeAppearance2">
         <item name="neumorph_cornerFamily">rounded</item>
         <item name="neumorph_cornerSize">32dp</item>
+    </style>
+
+    <style name="AppDialogTheme" parent="Theme.MaterialComponents.Dialog">
+        <item name="android:windowNoTitle">false</item>
+        <item name="android:windowFullscreen">false</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowCloseOnTouchOutside">true</item>
     </style>
 
 </resources>

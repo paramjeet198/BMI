@@ -1,13 +1,15 @@
 package com.techbull.bmi;
 
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.widget.Toast;
+import android.view.View;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -17,23 +19,34 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.material.navigation.NavigationView;
-import com.techbull.bmi.WalkThrough.WalkThrough;
-import com.techbull.bmi.ui.BMI_HOME.BmiFragment;
-import com.techbull.bmi.ui.gallery.GalleryFragment;
+import com.techbull.bmi.ui.BMI.BmiFragment;
+import com.techbull.bmi.ui.Home.HomeFragment;
+import com.techbull.bmi.ui.WaterTrack.WaterTracking;
 import com.techbull.bmi.ui.slideshow.SlideshowFragment;
 
 public class MainActivity extends AppCompatActivity {
 
     private ActionBarDrawerToggle actionBarDrawerToggle;
     private NavigationView navigationView;
-    private Fragment fragment1, fragment2, fragment3, active;
+    private Fragment fragmentHome, fragmentBMI, fragment2, fragment3, fragment4, active;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-//        FirstRun();
+        getWindow().setStatusBarColor(getResources().getColor(R.color.colorPrimary));
+
+        switch (getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK) {
+            case Configuration.UI_MODE_NIGHT_YES:
+                getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_VISIBLE);
+                break;
+            case Configuration.UI_MODE_NIGHT_NO:
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
+                    getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+                break;
+        }
 
         final DrawerLayout drawer = findViewById(R.id.drawerLayout);
         navigationView = findViewById(R.id.navigationView);
@@ -41,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        loadFragments(R.id.nav_bmi);
+        loadFragments(R.id.nav_home);
         navigationView.getMenu().getItem(0).setChecked(true);
 
         actionBarDrawerToggle = new ActionBarDrawerToggle(MainActivity.this, drawer, toolbar, R.string.drawer_open, R.string.drawer_close);
@@ -50,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
         actionBarDrawerToggle.syncState();
         actionBarDrawerToggle.setDrawerSlideAnimationEnabled(true);
         if (getSupportActionBar() != null) {
-            getSupportActionBar().setTitle("Body Mass Index");
+            getSupportActionBar().setTitle("Home");
             getSupportActionBar().setHomeButtonEnabled(true);
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
             getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_drawer);
@@ -60,35 +73,29 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 int id = item.getItemId();
+                navigationView.setCheckedItem(id);
                 if (drawer.isDrawerOpen(GravityCompat.START))
                     drawer.closeDrawer(GravityCompat.START);
                 switch (id) {
+                    case R.id.nav_home:
+                        loadFragments(R.id.nav_home);
+                        getSupportActionBar().setTitle("Home");
+                        break;
                     case R.id.nav_bmi:
                         loadFragments(R.id.nav_bmi);
-                        navigationView.getMenu().getItem(0).setChecked(true);
-                        navigationView.getMenu().getItem(1).setChecked(false);
-                        navigationView.getMenu().getItem(2).setChecked(false);
+                        getSupportActionBar().setTitle("Body Mass Index");
                         break;
                     case R.id.nav_bmr:
-                        Toast.makeText(MainActivity.this, "We are Working", Toast.LENGTH_SHORT).show();
-//                        loadFragments(R.id.nav_bmr);
-//                        navigationView.getMenu().getItem(1).setChecked(true);
-//                        navigationView.getMenu().getItem(0).setChecked(false);
-//                        navigationView.getMenu().getItem(2).setChecked(false);
+                        loadFragments(R.id.nav_bmr);
+                        getSupportActionBar().setTitle("Daily Calorie Intake");
                         break;
                     case R.id.nav_fat_percent:
-                        Toast.makeText(MainActivity.this, "We are Working on this part.", Toast.LENGTH_SHORT).show();
-////                        loadFragments(R.id.nav_fat_percent);
-//                        navigationView.getMenu().getItem(2).setChecked(true);
-//                        navigationView.getMenu().getItem(0).setChecked(false);
-//                        navigationView.getMenu().getItem(1).setChecked(false);
+                        loadFragments(R.id.nav_fat_percent);
+                        getSupportActionBar().setTitle("Body Fat Percentage");
                         break;
                     case R.id.water_tracking:
-                        Toast.makeText(MainActivity.this, "Under development", Toast.LENGTH_SHORT).show();
-////                        loadFragments(R.id.nav_fat_percent);
-//                        navigationView.getMenu().getItem(2).setChecked(true);
-//                        navigationView.getMenu().getItem(0).setChecked(false);
-//                        navigationView.getMenu().getItem(1).setChecked(false);
+                        loadFragments(R.id.water_tracking);
+                        getSupportActionBar().setTitle("Water Tracking");
                         break;
 
                     case R.id.rate:
@@ -147,44 +154,47 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void FirstRun() {
-        boolean isFirstRun = getSharedPreferences("PREFERENCE", MODE_PRIVATE).getBoolean("isFirstRun", true);
-
-        if (isFirstRun) {
-            startActivity(new Intent(MainActivity.this, WalkThrough.class));
-            Toast.makeText(MainActivity.this, "First Run", Toast.LENGTH_LONG)
-                    .show();
-        }
-        getSharedPreferences("PREFERENCE", MODE_PRIVATE).edit().putBoolean("isFirstRun", false).apply();
-    }
 
     void loadFragments(int id) {
         FragmentTransaction sfm = getSupportFragmentManager().beginTransaction();
         if (active != null) {
             sfm.hide(active);
         }
-
         switch (id) {
-            case R.id.nav_bmi:
-                if (fragment1 == null) {
-                    fragment1 = new BmiFragment();
-                    sfm.add(R.id.nav_host_fragment, fragment1);
+            case R.id.nav_home:
+                if (true || fragmentHome == null) {
+                    fragmentHome = new HomeFragment();
+                    sfm.add(R.id.nav_host_fragment, fragmentHome);
                 }
-                active = fragment1;
+                active = fragmentHome;
+                break;
+            case R.id.nav_bmi:
+                if (true || fragmentBMI == null) {
+                    fragmentBMI = new BmiFragment();
+                    sfm.add(R.id.nav_host_fragment, fragmentBMI);
+                }
+                active = fragmentBMI;
                 break;
             case R.id.nav_bmr:
-                if (fragment2 == null) {
-                    fragment2 = new GalleryFragment();
+                if (true || fragment2 == null) {
+                    fragment2 = new WaterTracking();
                     sfm.add(R.id.nav_host_fragment, fragment2);
                 }
                 active = fragment2;
                 break;
             case R.id.nav_fat_percent:
-                if (fragment3 == null) {
+                if (true || fragment3 == null) {
                     fragment3 = new SlideshowFragment();
                     sfm.add(R.id.nav_host_fragment, fragment3);
                 }
                 active = fragment3;
+                break;
+            case R.id.water_tracking:
+                if (true || fragment4 == null) {
+                    fragment4 = new WaterTracking();
+                    sfm.add(R.id.nav_host_fragment, fragment4);
+                }
+                active = fragment4;
                 break;
         }
         if (active == null) {
@@ -193,6 +203,13 @@ public class MainActivity extends AppCompatActivity {
         sfm.show(active);
         sfm.commit();
 
+    }
+
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        fragmentHome.onActivityResult(requestCode, resultCode, data);
     }
 
 }

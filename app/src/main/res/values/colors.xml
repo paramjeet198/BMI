@@ -1,9 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <color name="colorPrimary">#F3F2F2</color>
+    <color name="colorPrimary">#F2F3F5</color>
     <color name="colorPrimaryDark">#d32f2f</color>
     <color name="colorAccent">#C6D32F2F</color>
+
+    <!--    <color name="walk_through_background">#FFF</color>-->
+    <!--    <color name="walk_through_cardcolor">#FFF</color>-->
+    <!--    <color name="cardSelectedColor">#D32F2F</color>-->
+
+    <!--    <color name="walk_through_background">#1A1A1C</color>-->
+    <color name="walk_through_background">#12192c</color>
+    <color name="walk_through_cardcolor">#233b55</color>
+    <color name="cardSelectedColor">#e8854e</color>
 
     <color name="colorText">#d32f2f</color>
     <color name="colorWhite">#FFFFFF</color>
@@ -23,5 +32,9 @@
     <color name="numberPickerSelectedColor">#d32f2f</color>
     <color name="notchColor">#C6F15858</color>
     <color name="yourTranslucentColor">#29000000</color>
+
+    //Profile/Home Fragment colors..
+    <color name="profileValuesColor">#000000</color>
+    <color name="profileCardColor">#FFFFFF</color>
 
 </resources>
