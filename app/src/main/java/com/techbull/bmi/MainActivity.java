@@ -7,6 +7,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -19,6 +20,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.material.navigation.NavigationView;
+import com.techbull.bmi.Helper.BuildInfo;
 import com.techbull.bmi.ui.BMI.BmiFragment;
 import com.techbull.bmi.ui.Home.HomeFragment;
 import com.techbull.bmi.ui.WaterTrack.WaterTracking;
@@ -152,6 +154,10 @@ public class MainActivity extends AppCompatActivity {
                 return false;
             }
         });
+
+
+        Toast.makeText(MainActivity.this, "Sale Paid: " + BuildInfo.salePaid + " isPaid: " + BuildInfo.isPaid(), Toast.LENGTH_LONG).show();
+
     }
 
 

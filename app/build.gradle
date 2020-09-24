@@ -4,21 +4,21 @@ android {
     compileSdkVersion 29
     buildToolsVersion "29.0.3"
 
-    signingConfigs {
-        freeRelease {
-            storeFile file('D:\\TechBull_BMI\\OlympiaBMI.jks')
-            storePassword 'jeet198#'
-            keyAlias = 'key0'
-            keyPassword 'jeet198#'
-        }
-
-        paidRelease{
-            storeFile file('D:\\TechBull_BMI\\OlympiaBMI.jks')
-            storePassword 'jeet198#'
-            keyAlias = 'key0'
-            keyPassword 'jeet198#'
-        }
-    }
+//    signingConfigs {
+//        freeRelease {
+//            storeFile file('D:\\TechBull_BMI\\OlympiaBMI.jks')
+//            storePassword 'jeet198#'
+//            keyAlias = 'key0'
+//            keyPassword 'jeet198#'
+//        }
+//
+//        paidRelease{
+//            storeFile file('D:\\TechBull_BMI\\OlympiaBMI.jks')
+//            storePassword 'jeet198#'
+//            keyAlias = 'key0'
+//            keyPassword 'jeet198#'
+//        }
+//    }
 
     defaultConfig {
         applicationId "com.techbull.bmi"
@@ -43,8 +43,8 @@ android {
 
     buildTypes {
         release {
-            productFlavors.free.signingConfig signingConfigs.freeRelease
-            productFlavors.paid.signingConfig signingConfigs.paidRelease
+//            productFlavors.free.signingConfig signingConfigs.freeRelease
+//            productFlavors.paid.signingConfig signingConfigs.paidRelease
 
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
