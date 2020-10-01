@@ -22,7 +22,6 @@ import java.util.List;
 
 public class FragmentChooseLanguage extends Fragment {
     private Button nextBtn;
-    private SharedPreferences preferences;
     private RecyclerView recyclerView;
     private List<CountryList> countryLists;
 
@@ -46,8 +45,6 @@ public class FragmentChooseLanguage extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_choose_language, container, false);
 
-        if (getActivity() != null)
-            preferences = getActivity().getSharedPreferences("data", Context.MODE_PRIVATE);
 
         countryLists = new ArrayList<>();
 
@@ -62,12 +59,12 @@ public class FragmentChooseLanguage extends Fragment {
     }
 
     private void loadData() {
-        countryLists.add(new CountryList("English", "En"));
-        countryLists.add(new CountryList("Spanish", "sp"));
+        countryLists.add(new CountryList("English", ""));
+        countryLists.add(new CountryList("Spanish", "es"));
         countryLists.add(new CountryList("Russian", "ru"));
-        countryLists.add(new CountryList("Portuguese", "Po"));
-        countryLists.add(new CountryList("French", "Fr"));
-        countryLists.add(new CountryList("Arabic", "Ar"));
+        countryLists.add(new CountryList("Portuguese", "pt"));
+        countryLists.add(new CountryList("French", "fr"));
+        countryLists.add(new CountryList("Arabic", "ar"));
 
         recyclerView.setAdapter(new AdapterCountryList(getContext(), countryLists));
     }
@@ -77,7 +74,6 @@ public class FragmentChooseLanguage extends Fragment {
         nextBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                preferences.edit().putInt("gender", 1).apply();
                 ((WalkThrough) getActivity()).updatePosition(1);
             }
         });

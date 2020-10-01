@@ -9,10 +9,10 @@
     <string name="drawer_open">Drawer Open</string>
     <string name="drawer_close">Drawer Close</string>
 
-    <string name="menu_home">Body Mass Index</string>
-    <string name="daily_calorie_intake">Daily Calorie Intake</string>
-    <string name="body_fat_percentage">Body Fat Percentage</string>>
-    <string name="water_tracking">Water Tracking</string>
+    <string name="menu_home">Índice de massa corporal</string>
+    <string name="daily_calorie_intake">Ingestão Diária de Calorias</string>
+    <string name="body_fat_percentage">Porcentagem de gordura corporal</string>>
+    <string name="water_tracking">Rastreamento de água</string>
 
     <string name="cm_kg">kg | cm</string>
     <string name="in_lb">lbs | ft</string>
@@ -39,6 +39,6 @@
     <string name="weight">Weight</string>
     <string name="height">Height</string>
     <string name="bmi_table">BMI Table</string>
-    <string name="home">Home</string>
+    <string name="home">Casa</string>
 
 </resources>

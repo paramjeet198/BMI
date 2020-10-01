@@ -18,6 +18,7 @@ import com.shawnlin.numberpicker.NumberPicker;
 import com.techbull.bmi.Helper.Keys;
 import com.techbull.bmi.MainActivity;
 import com.techbull.bmi.R;
+import com.techbull.bmi.Splash;
 
 public class FragmentChooseHeight extends Fragment {
     private static final String ARG_PARAM1 = "param1";
@@ -187,7 +188,7 @@ public class FragmentChooseHeight extends Fragment {
             public void onClick(View v) {
                 Prefs.putBoolean(Keys.KEY_IS_FIRST_RUN, false);
                 setData();
-                Intent intent = new Intent(getContext(), MainActivity.class);
+                Intent intent = new Intent(getContext(), Splash.class);
                 getActivity().finish();
                 getActivity().startActivity(intent);
             }

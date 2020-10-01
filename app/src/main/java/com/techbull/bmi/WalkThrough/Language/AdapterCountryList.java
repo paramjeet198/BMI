@@ -12,6 +12,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.pixplicity.easyprefs.library.Prefs;
 import com.techbull.bmi.R;
 
 import java.util.List;
@@ -20,12 +21,10 @@ public class AdapterCountryList extends RecyclerView.Adapter<AdapterCountryList.
     private Context context;
     private List<CountryList> mCountryList;
     private int selectedItemPosition;
-    private SharedPreferences preferences;
 
     public AdapterCountryList(Context context, List<CountryList> mCountryList) {
         this.context = context;
         this.mCountryList = mCountryList;
-        preferences = context.getSharedPreferences("data", Context.MODE_PRIVATE);
     }
 
     @NonNull
@@ -48,7 +47,7 @@ public class AdapterCountryList extends RecyclerView.Adapter<AdapterCountryList.
             }
         });
         if (mCountryList.get(position).getName().equals(mCountryList.get(selectedItemPosition).getName())) {
-            preferences.edit().putString("language", mCountryList.get(position).getShortName()).apply();
+            Prefs.putString("language", mCountryList.get(position).getShortName());
             holder.img.setVisibility(View.VISIBLE);
             holder.layoutHolder.setBackgroundColor(context.getResources().getColor(R.color.cardSelectedColor));
         } else {

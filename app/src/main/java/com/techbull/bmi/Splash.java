@@ -1,6 +1,9 @@
 package com.techbull.bmi;
 
+import android.content.Context;
+import android.content.ContextWrapper;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.Handler;
@@ -18,6 +21,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Locale;
 
 public class Splash extends AppCompatActivity {
 
@@ -66,5 +70,12 @@ public class Splash extends AppCompatActivity {
             }, 2000);
 
         }
+    }
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        Locale localeToSwitchTo = new Locale(Prefs.getString("language", ""));
+        ContextWrapper localeUpdatedContext = ContextUtils.updateLocale(newBase, localeToSwitchTo);
+        super.attachBaseContext(localeUpdatedContext);
     }
 }
